@@ -1,11 +1,21 @@
 
+import sys
 import streamlit as st
 import pandas as pd
 import re
 import io
 
-from pypdf import PdfReader
-from docx import Document
+try:
+    from pypdf import PdfReader
+except ImportError:
+    st.error("❌ pypdf library not found. Please install: pip install pypdf")
+    sys.exit(1)
+
+try:
+    from docx import Document
+except ImportError:
+    st.error("❌ python-docx library not found. Please install: pip install python-docx")
+    sys.exit(1)
 
 
 # ---------------------------------------------------
